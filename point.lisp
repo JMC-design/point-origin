@@ -71,6 +71,67 @@
            #:sphericize))
 
 (in-package #:point-origin%)
+(declaim (inline  #:new
+                  #:dimensions
+                  #:copy
+                  #:element-type
+                  #:type
+
+                  #:==
+                  #:x
+                  #:y
+                  #:z
+                  #:w
+                     
+                  #:->list
+                  #:->vector
+                  #:->values
+
+                  ;; Protocol parts that would be nice to have for new implementations
+
+                  #:+
+                  #:-
+                  #:*
+                  #:/
+
+                  #:magnitude
+                  #:dot
+                  #:cross
+                  #:normalize
+
+                  ;; Should work with anything that provides the basics.
+
+                  #:random
+                  #:transform
+                  #:ntransform
+                     
+                  #:min
+                  #:max
+                  #:nmin
+                  #:nmax
+                     
+                  #:distance
+                  #:euclidean-sqrt 
+                  #:euclidean
+                  #:manhattan
+                  #:minkowski      
+                  #:of-division
+
+                  #:angle
+                     
+                  #:angle-cosine
+                  #:angle-sine
+                  #:angle-acos
+                  #:z-alignment-angles
+                  #:angle-2d
+                     
+                  #:lerp
+                  #:negate
+                  #:jitter
+                     
+                  #:in-polygon?
+                  #:bounds
+                  #:sphericize))
 (eval-when (:compile-toplevel :load-toplevel :execute)
     (defun split-dot (symbol)
    (destructuring-bind (sym fn) (split-sequence:split-sequence #\. (symbol-name symbol))

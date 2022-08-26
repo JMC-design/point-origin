@@ -1,5 +1,13 @@
-(in-package #:point-)
+(in-package #:point-origin)
 
+
+
+(defmethod point:new ((type (eql :ovec2)) x y &optional z w)  (origin.geometry.point2d:point (coerce x 'single-float) (coerce y 'single-float)))
+(defmethod point:new ((type (eql :ovec3)) x y &optional z w)  (origin.geometry.point3d:point (coerce x 'single-float) (coerce y 'single-float) (coerce z 'single-float)))
+(defmethod point:new ((type (eql :ovec4)) x y &optional z w)  (origin.vec4::%vec (coerce x 'single-float) (coerce y 'single-float)(coerce z 'single-float)(coerñce w 'single-float)))
+(defmethod point:new ((type (eql :odvec2)) x y &optional z w) (origin.dvec2::%vec (coerce x 'double-float) (coerce y 'double-float)))
+(defmethod point:new ((type (eql :odvec3)) x y &optional z w) (origin.dvec3::%vec (coerce x 'double-float) (coerce y 'double-float) (coerce z 'double-float)))
+(defmethod point:new ((type (eql :odvec4)) x y &optional z w) (origin.dvec4::%vec (coerce x 'double-float) (coerce y 'double-float)(coerce z 'double-float)(coerce w 'double-float)))
 (defmethod point:dimensions ((p vector)) (point-origin%:dimensions p))
 (defmethod point:copy ((p vector)) (point-origin%:copy p))
 (defmethod point:element-type ((p vector))(point-origin%:element-type p))
